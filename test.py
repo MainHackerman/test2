@@ -21,6 +21,7 @@ def Test1(test_val):
 
     file = open('test')
     string = file.read()
+    file.close()
     list = string.split('\n')
     if list[-2] == 'Nákup se ruší.':
         print('PASS')
@@ -33,6 +34,7 @@ def Test2(test_val):
     os.system('python3 project.py < test_values > test')
     file = open('test')
     string = file.read()
+    file.close()
     list = string.split('\n')
     if 'Pepa' in list[-2] and '4' in list[-2]:
         print('PASS')

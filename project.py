@@ -25,7 +25,7 @@ while cena > budget:
         elif vyber == 'hruska':
             cena = cena - hruska
 
-if vyber == 'KONEC':
+if vyber == 'KONEC' or cena <= 0:
     print('Nákup se ruší.')
 else:
     print('Na nákup půjde', jmeno, 'a zaplatí',cena)

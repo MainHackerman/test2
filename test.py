@@ -29,6 +29,14 @@ def ClearEnv():
     os.system('rm test')
     os.system('rm test_values')
 
+def Test0(test_val):
+    CreateDataSet(test_val)
+    list = GetResults()
+    if test_val[0] in list[-2] and '5' in list[-2]:
+        print('PASS - Can buy.')
+    else:
+        print('FAIL - Cannot buy.')
+    ClearEnv()
 
 def Test1(test_val):
     CreateDataSet(test_val)
@@ -63,6 +71,7 @@ def Test3(test_val):
                 print('PASS - Can remove', item, 'from shopping list.')
             else:
                 print('FAIL - Cant remove', item, 'from shopping list.')
+        ClearEnv()
 
 def Test4(test_val):
     for item in fruit:
@@ -76,6 +85,7 @@ def Test4(test_val):
             print('PASS - Cannot remove', item, 'from shopping list twice.')
         ClearEnv()
 
+test0_val = ['Pepa', 5]
 test1_val = ['Pepa', 2, 'KONEC']
 test2_val = ['Pepa', 2, 'BUDGET', 5]
 test3_val = ['Pepa', 4, 'NAKUP', 'ovoce']

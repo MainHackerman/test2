@@ -32,10 +32,14 @@ def ClearEnv():
 def Test0(test_val):
     CreateDataSet(test_val)
     list = GetResults()
-    if test_val[0] in list[-2] and '5' in list[-2]:
+    if test_val[0] in list[-2]:
         print('PASS - Can buy.')
     else:
         print('FAIL - Cannot buy.')
+    if '5' in list[-2]:
+        print('PASS - Price ok')
+    else:
+        print('FAIL - wrong price calculation')
     ClearEnv()
 
 def Test1(test_val):
@@ -50,10 +54,14 @@ def Test1(test_val):
 def Test2(test_val):
     CreateDataSet(test_val)
     list = GetResults()
-    if test_val[0] in list[-2] and '5' in list[-2]:
-        print('PASS - Can change the budget.')
+    if test_val[0] in list[-2]:
+        print('PASS - Can change budget.')
     else:
-        print('FAIL - Cannot change the budget.')
+        print('FAIL - Cant change budget.')
+    if '5' in list[-2]:
+        print('PASS - Price ok')
+    else:
+        print('FAIL - Wrong price calculation')
     ClearEnv()
 
 def Test3(test_val):

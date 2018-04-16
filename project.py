@@ -12,7 +12,7 @@ while cena > budget:
     print('Zadej KONEC pro skonceni, BUDGET pro zmenu budgetu, NAKUP pro smazani polozky z nakupniho listu')
     vyber = input()
     if vyber == 'KONEC':
-        quit()
+        break
     elif vyber == 'BUDGET':
         budget = int(input('Zadej novou castku'))
     elif vyber == 'NAKUP':
@@ -24,3 +24,8 @@ while cena > budget:
             cena = cena - jablko
         elif vyber == 'hruska':
             cena = cena - hruska
+
+if vyber == 'KONEC':
+    print('Nákup se ruší')
+else:
+    print('Na nákup půjde', jmeno, 'a zaplatí',cena)

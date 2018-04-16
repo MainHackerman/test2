@@ -2,8 +2,11 @@ jmeno = input()
 budget = int(input())
 
 banan = 2
+bananB = True
 jablko = 1
+jablkoB = True
 hruska = 1
+hruskaB = True
 
 cena = banan + jablko + hruska
 
@@ -18,12 +21,17 @@ while cena > budget:
     elif vyber == 'NAKUP':
         print('Jakou položku chceš odebrat?')
         vyber = input()
-        if vyber == 'banan':
+        if vyber == 'banan' and bananB == True:
             cena = cena - banan
-        elif vyber == 'jablko':
+            bananB = False
+        elif vyber == 'jablko' and jablkoB == True:
             cena = cena - jablko
-        elif vyber == 'hruska':
+            jablkoB = False
+        elif vyber == 'hruska' and hruskaB == True:
             cena = cena - hruska
+            hruskaB = False
+        else:
+            print('Tato položka není v seznamu')
 
 if vyber == 'KONEC' or cena <= 0:
     print('Nákup se ruší.')

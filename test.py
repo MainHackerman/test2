@@ -33,35 +33,34 @@ def Test0(test_val):
     CreateDataSet(test_val)
     list = GetResults()
     if test_val[0] in list[-2]:
-        print('PASS - Can buy.')
+        os.system('rlPass "Name in output"')
     else:
-        print('FAIL - Cannot buy.')
+        os.system('rlFail "Name not in output"')
     if '5' in list[-2]:
-        print('PASS - Price ok')
+        os.system('rlPass "Price ok"')
     else:
-        print('FAIL - wrong price calculation')
+        os.system('rlFail "Wrong price calculation"')
     ClearEnv()
 
 def Test1(test_val):
     CreateDataSet(test_val)
     if GetResults()[-2] == 'Nákup se ruší.':
-        print('PASS - Can cancel shopping.')
+        os.system('rlPass "Can cancel shopping"')
     else:
-        print('FAIL - Cannot cancel shopping.')
+        os.system('rlFail "Cant cancel shopping"')
     ClearEnv()
-
 
 def Test2(test_val):
     CreateDataSet(test_val)
     list = GetResults()
     if test_val[0] in list[-2]:
-        print('PASS - Can change budget.')
+        os.system('rlPass "Can change the budget"')
     else:
-        print('FAIL - Cant change budget.')
+        os.system('rlFail "Cant change the budget"')
     if '5' in list[-2]:
-        print('PASS - Price ok')
+        os.system('rlPass "Price ok"')
     else:
-        print('FAIL - Wrong price calculation')
+        os.system('rlFail "Wrong price calculation"')
     ClearEnv()
 
 def Test3(test_val):
@@ -71,14 +70,18 @@ def Test3(test_val):
         list = GetResults()
         if item == 'banan':
             if test_val[0] in list[-2] and '2' in list[-2]:
-                print('PASS - Can remove', item, 'from shopping list.')
+                os.system('rlPass "Can remove' + str(item) + 'from shopping list"')
+                #print('PASS - Can remove', item, 'from shopping list.')
             else:
-                print('FAIL - Cant remove', item, 'from shopping list.')
+                os.system('rlFail "Cant remove' + str(item) + 'from shopping list"')
+                #print('FAIL - Cant remove', item, 'from shopping list.')
         else:
             if test_val[0] in list[-2] and '4' in list[-2]:
-                print('PASS - Can remove', item, 'from shopping list.')
+                os.system('rlPass "Can remove' + str(item) + 'from shopping list"')
+                #print('PASS - Can remove', item, 'from shopping list.')
             else:
-                print('FAIL - Cant remove', item, 'from shopping list.')
+                os.system('rlFail "Cant remove' + str(item) + 'from shopping list"')
+                #print('FAIL - Cant remove', item, 'from shopping list.')
         ClearEnv()
 
 def Test4(test_val):
@@ -88,9 +91,11 @@ def Test4(test_val):
         CreateDataSet(test_val)
         list = GetResults()
         if 'Tato položka není v seznamu.' not in list:
-            print('FAIL - Can remove item', item, 'from shopping list twice.')
+            os.system('rlFail "Can remove' + str(item) + 'from shopping list twice"')
+            #print('FAIL - Can remove item', item, 'from shopping list twice.')
         else:
-            print('PASS - Cannot remove', item, 'from shopping list twice.')
+            os.system('rlPass "Cant remove' + str(item) + 'from shopping list twice"')
+            #print('PASS - Cannot remove', item, 'from shopping list twice.')
         ClearEnv()
 
 test0_val = ['Pepa', 5]
@@ -99,7 +104,9 @@ test2_val = ['Pepa', 2, 'BUDGET', 5]
 test3_val = ['Pepa', 4, 'NAKUP', 'ovoce']
 test4_val = ['Pepa', 1, 'NAKUP', 'ovoce', 'NAKUP', 'ovoce', 'KONEC']
 
+os.system('rlJournalStart')
 Test1(test1_val)
 Test2(test2_val)
 Test3(test3_val)
 Test4(test4_val)
+os.system('rlJournalEnd')

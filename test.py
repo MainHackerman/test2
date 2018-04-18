@@ -105,6 +105,7 @@ test3_val = ['Pepa', 4, 'NAKUP', 'ovoce']
 test4_val = ['Pepa', 1, 'NAKUP', 'ovoce', 'NAKUP', 'ovoce', 'KONEC']
 
 os.system('rlJournalStart')
+Test0(test0_val)
 Test1(test1_val)
 Test2(test2_val)
 Test3(test3_val)

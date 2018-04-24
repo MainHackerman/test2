@@ -1,5 +1,6 @@
 jmeno = input()
 budget = int(input())
+vyber = ''
 
 banan = 3
 bananB = True
@@ -33,7 +34,7 @@ while cena > budget:
         else:
             print('Tato položka není v seznamu.')
 
-if vyber == 'KONEC' or cena <= 0:
+if  cena <= 0 or vyber == 'KONEC':
     print('Nákup se ruší.')
 else:
     print('Na nákup půjde', jmeno, 'a zaplatí',cena)

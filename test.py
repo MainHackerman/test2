@@ -98,11 +98,21 @@ def Test4(test_val):
             #print('PASS - Cannot remove', item, 'from shopping list twice.')
         ClearEnv()
 
+def Test5(test_val):
+    CreateDataSet(test_val)
+    list = GetResults()
+    if list[-2] == 'Nákup se ruší':
+        os.system('rlPass "Shopping ends when everything is removed form the list"')
+    else:
+        os.system('rlFail "Shopping does not end when everything is removed form the list"')
+    ClearEnv()
+
 test0_val = ['Pepa', 5]
 test1_val = ['Pepa', 2, 'KONEC']
 test2_val = ['Pepa', 2, 'BUDGET', 5]
 test3_val = ['Pepa', 4, 'NAKUP', 'ovoce']
 test4_val = ['Pepa', 1, 'NAKUP', 'ovoce', 'NAKUP', 'ovoce', 'KONEC']
+test5_val = ['Pepa', 0, 'NAKUP', 'banan', 'NAKUP', 'jablko', 'NAKUP', 'hruska']
 
 os.system('rlJournalStart')
 Test0(test0_val)
@@ -110,4 +120,5 @@ Test1(test1_val)
 Test2(test2_val)
 Test3(test3_val)
 Test4(test4_val)
+Test5(test5_val)
 os.system('rlJournalEnd')

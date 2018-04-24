@@ -39,4 +39,6 @@
  
  ### Test4()
   -  Passes low budget then tries to remove one item from fruit list twice. This is done for all item in fruit list repeating whole proces of creation dataset and results.
-   
+ 
+ ### Test5():
+  - Removes all items from shopping list, checks if correct message is printed.

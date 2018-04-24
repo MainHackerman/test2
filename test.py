@@ -44,7 +44,7 @@ def Test0(test_val):
 
 def Test1(test_val):
     CreateDataSet(test_val)
-    if GetResults()[-2] == 'Nákup se ruší.':
+    if 'Nákup se ruší' in GetResults()[-2]:
         os.system('rlPass "Can cancel shopping"')
     else:
         os.system('rlFail "Cant cancel shopping"')
@@ -90,7 +90,7 @@ def Test4(test_val):
         test_val[-2] = item
         CreateDataSet(test_val)
         list = GetResults()
-        if 'Tato položka není v seznamu.' not in list:
+        if 'Tato položka není v seznamu' not in list:
             os.system('rlFail "Can remove' + str(item) + 'from shopping list twice"')
             #print('FAIL - Can remove item', item, 'from shopping list twice.')
         else:
@@ -101,7 +101,7 @@ def Test4(test_val):
 def Test5(test_val):
     CreateDataSet(test_val)
     list = GetResults()
-    if list[-2] == 'Nákup se ruší':
+    if 'Nákup se ruší' in list[-2]:
         os.system('rlPass "Shopping ends when everything is removed form the list"')
     else:
         os.system('rlFail "Shopping does not end when everything is removed form the list"')
